@@ -8,6 +8,50 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    
+    <div id="header">
+        <h1>Condor Weight Calculator</h1>
+        <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine.</a>
+        <p>Web tool by Gavin Davenport</p>
+    </div>
+    <div id="choose-lift">
+        <form id="lift-form">
+            <label for="lift">Choose what lift you're using:</label>
+            <select name="lift" id="lift-select">
+                <optgroup label="JLG">
+                    <option value='{"restricted":"600", "unrestricted":"1000"}'>400S</option>
+                    <option value='{"restricted":"600", "unrestricted":"1000"}'>600S</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>800S</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>450A</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>600A</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>800A</option>
+                    <option value='{"restricted":"600", "unrestricted":"600"}'>460SJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"750"}'>660SJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"750"}'>860SJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>450AJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>600AJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>800AJ</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>1200SJP</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>1350SJP</option>
+                </optgroup>
+                <optgroup label="Genie">
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-45</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-65</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-85</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-105</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-120</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>S-125</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>S-40</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>S-60</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>S-60HC</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>S-80</option>
+                    <option value='{"restricted":"500", "unrestricted":"1000"}'>S-100</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>Z-34/22 IC</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>Z-45/25J</option>
+                    <option value='{"restricted":"500", "unrestricted":"500"}'>Z-60/34</option>
+                </optgroup>
+            </select>
+        </form>
+    </div>
+
 </body>
 </html>
