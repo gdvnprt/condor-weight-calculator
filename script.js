@@ -8,8 +8,14 @@ selectLift.addEventListener('change', () => {
 
 
 //clone nodes to simplify item addition
+let counter = 0;
 const duplicateDiv = (div) => {
     let dupDiv = div.cloneNode(true);
+    dupDiv.children[1].id = dupDiv.children[1].id + counter;
+    dupDiv.children[0].for = dupDiv.children[1].id;
+    dupDiv.children[3].id = dupDiv.children[3].id + counter;
+    dupDiv.children[2].for = dupDiv.children[3].id;
+    counter++;
     div.parentNode.appendChild(dupDiv);
 };
 
