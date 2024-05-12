@@ -10,13 +10,15 @@
 <body>
     <div id="header">
         <h1>Condor Weight Calculator</h1>
-        <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine.</a>
+        <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine</a>
+        <p>Additional information: <a href="https://whites.com/sites/default/files/toolbelt/cable_weights.pdf">Cable Weights Chart</a></p>
         <p>Web tool by Gavin Davenport</p>
     </div>
     <div id="choose-lift">
         <form id="lift-form">
-            <label for="lift">Choose what lift you're using:</label>
+            <label for="lift-select">Choose what lift you're using:</label>
             <select name="lift" id="lift-select">
+                <option value="null"></option>
                 <optgroup label="JLG">
                     <option value='{"restricted":"600", "unrestricted":"1000"}'>400S</option>
                     <option value='{"restricted":"600", "unrestricted":"1000"}'>600S</option>
@@ -53,5 +55,60 @@
         </form>
     </div>
 
+    <div id="on-arm">
+        <form id="arm-form">
+            <div class="arm-item-div">
+                <label for="arm-item-quantity">Quantity:</label>
+                <input type="number" name="arm-item-quantity" id="arm-item-quantity">
+                <select name="arm-item" id="arm-item">
+                    <optgroup label="Bates">
+                        <option value="0"></option>
+                        <option value="14">25' 60amp</option>
+                        <option value="24">50' 60amp</option>
+                        <option value="45">100' 60amp</option>
+                        <option value="18">25'100amp</option>
+                        <option value="35">50' 100amp</option>
+                        <option value="60">100' 100amp</option>
+                        <option value="18">25' 220V</option>
+                        <option value="35">50' 220V</option>
+                        <option value="60">100' 220V</option>
+                    </optgroup>
+                    <optgroup label="Cam-Lock">
+                        <option value="75">50' 5-wire Banded</option>
+                        <option value="60">50' 4-wire Banded</option>
+                        <option value="22">25' 4/O</option>
+                        <option value="42">50' 4/O</option>
+                        <option value="85">100' 4/O</option>
+                        <option value="15">25' 2/O</option>
+                        <option value="22">50' 2/O</option>
+                        <option value="43">100' 2/O</option>
+                    </optgroup>
+                    <optgroup label="DMX">
+                        <option value="1">25'</option>
+                        <option value="2">50'</option>
+                        <option value="4">100'</option>
+                    </optgroup>
+                    <optgroup label = "Socapex">
+                        <option value="18">25'</option>
+                        <option value="35">50'</option>
+                        <option value="70">100'</option>
+                    </optgroup>
+                    <optgroup label="Other">
+                        <option value="33">6k/12k/18k Head Feeder</option>
+                        <option value="25">Cable Roller</option>
+                    </optgroup>
+                </select>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="in-basket">
+
+    </div>
+
+    <div id="totals">
+
+    </div>
 </body>
 </html>
