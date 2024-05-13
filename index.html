@@ -11,7 +11,8 @@
     <div id="header">
         <h1>Condor Weight Calculator</h1>
         <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine</a>
-        <p>Additional information: <a href="https://whites.com/sites/default/files/toolbelt/cable_weights.pdf">Cable Weights Chart</a></p>
+        <p>Additional information: <a href="https://whites.com/sites/default/files/toolbelt/cable_weights.pdf">Cable Weights Chart</a>, Various industry technical specifications sheets and vendor websites.</p>
+        <p>Some weight values are approximate.</p>
         <p>Web tool by Gavin Davenport</p>
     </div>
     <div id="choose-lift">
@@ -119,11 +120,104 @@
 
 
     <div id="in-basket">
-
+        <h3>In Basket</h3>
+        <div id="operator-div">
+            <label for="add-operator">Add Operator:</label>
+            <input type="checkbox" name="operator" id="add-operator">
+        </div>
+        <form id="basket-form">
+            <div class="basket-item-div">
+                <label for="basket-item">Type:</label>
+                <!--For future updates:
+                Any new item can be added as an option below with its value set to its measured, unadjusted weight.
+                Follow the below template:
+                <option value="WEIGHT HERE">NAME HERE</option>  -->
+                <select name="basket-item" id="basket-item" class="basket-item">
+                    <option value="0"></option>
+                    <optgroup label="LED">
+                        <option value="91">Arri S-360</option>
+                        <option value="29">Arri S-60</option>
+                        <option value="40">Arri Skypanel X</option>
+                        <option value="84">Arri Skypanel X22 - 2 Xs on one yoke</option>
+                        <option value="119">Arri Skypanel X23 - 3 Xs on one yoke</option>
+                        <option value="150">Digital Sputnik Beam</option>
+                    </optgroup>
+                    <optgroup label="HMI">
+                        <option value="153">Arrimax 18k</option>
+                        <option value="87">Arri M90</option>
+                        <option value="44">Arri M40</option>
+                        <option value="26">Arri M18</option>
+                        <option value="56">4k Fresnel</option>
+                        <option value="100">6k Par</option>
+                        <option value="125">12k Par and Lens Set</option>
+                    </optgroup>
+                    <optgroup label="Tungsten">
+                        <option value="7">Par Can</option>
+                        <option value="34">5k Baby</option>
+                        <option value="53">10k Baby</option>
+                        <option value="98">20k</option>
+                        <option value="21">9-Light Fay</option>
+                        <option value="100">9-Light Maxi With Doors</option>
+                        <option value="125">12-Light Dino</option>
+                        <option value="175">24-Light Dino</option>
+                        <option value="250">36-Light Dino</option>
+                    </optgroup>
+                    <optgroup label="Cable">
+                        <option value="2">10' Edison</option>
+                        <option value="4">25' Edison</option>
+                        <option value=".5">10' DMX</option>
+                        <option value="1">25' DMX</option>
+                        <option value="18">25' 100A 120/240 Bates</option>
+                        <option value="35">25' 5-wire Banded</option>
+                        <option value="8">10' Socapex</option>
+                        <option value="18">25' Socapex</option>
+                    </optgroup>
+                    <optgroup label="Distro">
+                        <option value="5">100A -> 60A Bates Splitter</option>
+                        <option value="5">Snakebite</option>
+                        <option value="10">Double Snakebite</option>
+                        <option value="7">60A Gang Box</option>
+                        <option value="8">100A Gang Box</option>
+                        <option value="11">100A Lunch Box</option>
+                        <option value="40">600A Distro Box</option>
+                    </optgroup>
+                    <optgroup label="Data">
+                        <option value="1">Opti-Splitter</option>
+                        <option value="4">Node</option>
+                        <option value="1">Ethernet Switch</option>
+                    </optgroup>
+                    <optgroup label="Grip">
+                        <option value="10">Candlestick</option>
+                        <option value="1">Cardellini Clamp</option>
+                        <option value="4">Baby Pipe Clamp</option>
+                        <option value="5">Junior Pipe Clamp</option>
+                        <option value="2">Ears</option>
+                        <option value="3">4x4 Frame</option>
+                        <option value="2">Chain Vice</option>
+                    </optgroup>
+                </select>
+                <label for="basket-item-quantity">Quantity:</label>
+                <input type="number" name="basket-item-quantity" class="basket-item-quantity" id="basket-item-quantity" value="1">
+                <button class="delete-item">x</button>
+            </div>
+        </form>
+        <div id="add-basket-item-btns">
+            <button class="add-item">Add Item</button>
+            <button class = "add-custom">Add Custom Item</button>
+        </div>
     </div>
 
     <div id="totals">
-
+        <div id="restricted">
+            <p id="restricted-weight"></p>
+            <p>/</p>
+            <p id="restricted-capacity"></p>
+        </div>
+        <div id="unlimited">
+            <p id="unlimited-weight"></p>
+            <p>/</p>
+            <p id="unlimited-capacity"></p>
+        </div>
     </div>
 </body>
 </html>
