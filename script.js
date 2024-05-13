@@ -10,32 +10,36 @@ const addItem = (array, position, value) => {
 const addItemListen = (element, array, modifier) => {
     element.addEventListener('change', () => {
         let weightValue = element.parentNode.children[1].value * element.parentNode.children[3].value * modifier;
-        let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.class));
+        let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.classList[0]));
         let position = posArr.indexOf(element.parentNode);
         //for some reason only the first in the list has a bug that makes its position -1 when it should be 0
         if (position == -1) {
             position = 0;
         };
         addItem(array, position, weightValue);
-        calculateWeight();
+        displayWeight();
     });
 };
 
 //Delete button removes section div and place in array
 const deleteItem = (array, position) => {
   array.splice(position, 1);
+  displayWeight();
 };
 
 const addDeleteListen = (element, array) => {
     element.addEventListener('click', () => {
-        let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.class));
+        let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.classList[0]));
         let position = posArr.indexOf(element.parentNode);
         //for some reason only the first in the list has a bug that makes its position -1 when it should be 0
         if (position == -1) {
             position = 0;
         };
-        deleteItem(array, position);
-        element.parentNode.parentNode.removeChild(element.parentNode);
+        if (posArr.length > 1) {
+            deleteItem(array, position);
+            element.parentNode.parentNode.removeChild(element.parentNode);
+            displayWeight();
+        };
     });
 };
 
@@ -43,17 +47,18 @@ const addDeleteListen = (element, array) => {
 const calculateWeight = () => {
     let onArm = armArray.reduce((a, b) => a + b, 0);
     let inBasket = basketArray.reduce((a, b) => a + b, 0);
+    if (operator.checked == true) {
+        inBasket += 275;
+    };
     let total =  onArm + inBasket;
-    let result = { onArm, inBasket, total };
-    console.log(result);
+    return { onArm, inBasket, total };
 };
 
 //selecting a lift type creates a json object with weight info
 const selectLift = document.querySelector("#lift-select");
 
 selectLift.addEventListener('change', () => {
-    let liftCapacity = JSON.parse(selectLift.value);
-    console.log(liftCapacity);
+    displayWeight();
 });
 
 //add listeners to original divs
@@ -62,6 +67,18 @@ addItem(armArray, 0, 0);
 addItemListen(startArmDiv.children[1], armArray, 1);
 addItemListen(startArmDiv.children[3], armArray, 1);
 addDeleteListen(startArmDiv.children[4], armArray);
+
+const startBasketDiv = document.querySelector('.basket-item-div');
+addItem(basketArray, 0, 0);
+//36" calculation from Matt Ardine's spreadsheet for in basket items means a modifier of 1.37
+addItemListen(startBasketDiv.children[1], basketArray, 1.37);
+addItemListen(startBasketDiv.children[3], basketArray, 1.37);
+addDeleteListen(startBasketDiv.children[4], basketArray);
+
+const operator = document.querySelector('#add-operator');
+operator.addEventListener('change', () => {
+    displayWeight();
+});
 
 //clone nodes to simplify item addition.  Make sure IDs don't replicate
 let counter = 0;
@@ -73,7 +90,7 @@ const duplicateDiv = (div) => {
     dupDiv.children[2].for = dupDiv.children[3].id;
     counter++;
     div.parentNode.appendChild(dupDiv);
-    if (dupDiv.class = "arm-item-div") {
+    if (div.classList[0] === "arm-item-div") {
         addItem(armArray, document.querySelectorAll(".arm-item-div").length, 0)
         addItemListen(dupDiv.children[1], armArray, 1);
         addItemListen(dupDiv.children[3], armArray, 1);
@@ -93,3 +110,44 @@ newItemBtn.forEach(el => el.addEventListener('click', () => {
 }));
 
 //custom item creates a div with user-input weight value and name
+
+//weight info pushes to DOM
+const displayWeight = () => {
+    let liftCapacity = JSON.parse(selectLift.value);
+
+    const resCap = document.querySelector("#restricted-capacity");
+    resCap.innerHTML = liftCapacity.restricted + " lbs"
+
+    const unLimCap = document.querySelector("#unlimited-capacity");
+    unLimCap.innerHTML = liftCapacity.unrestricted + " lbs"
+
+    let weightObj = calculateWeight();
+
+    const resWeight = document.querySelector("#restricted-weight");
+    resWeight.innerHTML = weightObj.total + " lbs";
+
+    const unLimWeight = document.querySelector("#unlimited-weight");
+    unLimWeight.innerHTML = weightObj.total + " lbs";
+
+    const resDiv = document.querySelector('#restricted')
+    const resMessage = document.querySelector('#restricted-message');
+
+    //colors change based on if weight is over-capacity
+    if (weightObj.total > liftCapacity.restricted) {
+        resDiv.style.color = 'red';
+        resMessage.innerHTML = "Overweight!"
+    } else {
+        resDiv.style.color = 'green';
+        resMessage.innerHTML = "Good to go!"
+    };
+
+    const unLimDiv = document.querySelector('#unlimited')
+    const unLimMessage = document.querySelector('#unlimited-message');
+    if (weightObj.total > liftCapacity.unrestricted) {
+        unLimDiv.style.color = 'red';
+        unLimMessage.innerHTML = "Overweight!"
+    } else {
+        unLimDiv.style.color = 'green';
+        unLimMessage.innerHTML = "Good to go!"
+    };
+};
