@@ -110,7 +110,10 @@ newItemBtn.forEach(el => el.addEventListener('click', () => {
 }));
 
 //custom item creates a div with user-input weight value and name
-
+const customItemBtn = document.querySelectorAll('.add-custom');
+newItemBtn.forEach(el => el.addEventListener('click', () => {
+    //functions here
+}));
 //weight info pushes to DOM
 const displayWeight = () => {
     let liftCapacity = JSON.parse(selectLift.value);
@@ -130,24 +133,25 @@ const displayWeight = () => {
     unLimWeight.innerHTML = weightObj.total + " lbs";
 
     const resDiv = document.querySelector('#restricted')
-    const resMessage = document.querySelector('#restricted-message');
+    const unLimDiv = document.querySelector('#unlimited')
+    const wgtMsg = document.querySelector('#weight-message');
+
 
     //colors change based on if weight is over-capacity
     if (weightObj.total > liftCapacity.restricted) {
-        resDiv.style.color = 'red';
-        resMessage.innerHTML = "Overweight!"
+        resDiv.style.color = "red";
+        unLimDiv.style.color = "red";
+        wgtMsg.style.color = "red";
+        wgtMsg.innerHTML = "Overweight!"
+    } else if (weightObj.total > liftCapacity.unrestricted && weightObj.total < liftCapacity.restricted) {
+        resDiv.style.color = "green";
+        unLimDiv.style.color = "red";
+        wgtMsg.style.color = "orange";
+        wgtMsg.innerHTML = "Restricted movement.  Stay within safe limits."
     } else {
-        resDiv.style.color = 'green';
-        resMessage.innerHTML = "Good to go!"
-    };
-
-    const unLimDiv = document.querySelector('#unlimited')
-    const unLimMessage = document.querySelector('#unlimited-message');
-    if (weightObj.total > liftCapacity.unrestricted) {
-        unLimDiv.style.color = 'red';
-        unLimMessage.innerHTML = "Overweight!"
-    } else {
-        unLimDiv.style.color = 'green';
-        unLimMessage.innerHTML = "Good to go!"
+        resDiv.style.color = "green";
+        unLimDiv.style.color = "green";
+        wgtMsg.style.color = "green";
+        wgtMsg.innerHTML = "Good to go!"
     };
 };
