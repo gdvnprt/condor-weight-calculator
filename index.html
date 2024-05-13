@@ -60,9 +60,13 @@
         </form>
     </div>
 
-    <div id="on-arm">
+    <div id="on-arm" class="section-container">
         <h3>On Arm</h3>
-        <form id="arm-form">
+        <div id="arm-weight" class="item-weight">
+            <h5>Weight on arm:</h5>
+            <h5 id="display-arm-weight"></h5>
+        </div>
+        <form id="arm-form" class="item-form">
             <div class="arm-item-div">
                 <label for="arm-item">Type:</label>
                 <!--For future updates:
@@ -119,13 +123,17 @@
     </div>
 
 
-    <div id="in-basket">
+    <div id="in-basket" class="section-container">
         <h3>In Basket</h3>
+        <div id="basket-weight" class="item-weight">
+            <h5>Adjusted weight in basket:</h5>
+            <h5 id="display-basket-weight"></h5>
+        </div>
         <div id="operator-div">
             <label for="add-operator">Add Operator:</label>
             <input type="checkbox" name="operator" id="add-operator">
         </div>
-        <form id="basket-form">
+        <form id="basket-form" class="item-form">
             <div class="basket-item-div">
                 <label for="basket-item">Type:</label>
                 <!--For future updates:
