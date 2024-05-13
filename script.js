@@ -131,7 +131,7 @@ const createCustom = (element) => {
     customDiv.classList.add(element.parentNode.previousElementSibling.firstElementChild.classList[0]);
     element.parentNode.previousElementSibling.appendChild(customDiv);
 
-    
+    //Name input created for user organizational uses - cosmetic only
     const nameInput = document.createElement('input');
     nameInput.id = "custom-name" + counter;
     nameInput.type = "text";
