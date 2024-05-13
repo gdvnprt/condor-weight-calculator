@@ -234,3 +234,6 @@ const displayWeight = () => {
         wgtMsg.innerHTML = "Good to go!"
     };
 };
+
+//show totals from start
+displayWeight();
