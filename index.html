@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condor Weight Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
     <div id="header">
         <h1>Condor Weight Calculator</h1>
-        <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine</a>
-        <p>Additional information: <a href="https://whites.com/sites/default/files/toolbelt/cable_weights.pdf">Cable Weights Chart</a>, various industry technical specifications sheets and vendor websites.</p>
-        <p>Some weight values are approximate.</p>
-        <p>Web tool by Gavin Davenport</p>
+        <h2 id="beta">BETA</h2>
+        <div id="info">
+            <p>Web tool by Gavin Davenport</p>
+            <a href="http://www.mattardine.com/?page_id=741">Based on the spreadsheet by Matt Ardine</a>
+            <p>Additional information: <a href="https://whites.com/sites/default/files/toolbelt/cable_weights.pdf">Cable Weights Chart</a>, various industry technical specifications sheets and vendor websites.</p>
+            <p>Some weight values are approximate.</p>
+        </div>
     </div>
     <div id="choose-lift">
         <form id="lift-form">
@@ -23,7 +26,7 @@
                 Follow the below template:
                 <option value='{"unrestricted":"UNRESTRICTED WEIGHT HERE", "restricted":"RESTRICTED WEIGHT HERE"}'>LIFT NAME HERE</option>  -->
             <select name="lift" id="lift-select">
-                <option value='{"unrestricted":"0", "restricted":"0"}'></option>
+                <option value='{"unrestricted":"0", "restricted":"0"}'><em>Select a Lift</em></option>
                 <optgroup label="JLG">
                     <option value='{"unrestricted":"600", "restricted":"1000"}'>400S</option>
                     <option value='{"unrestricted":"600", "restricted":"1000"}'>600S</option>
@@ -213,21 +216,21 @@
             <button class="add-item">Add Item</button>
             <button class = "add-custom">Add Custom Item</button>
         </div>
-        <p>Adjustment factor for basket items based on 36" distance from end of boom.</p>
+        <p id="adjust-explain">Adjustment factor for basket items based on 36" distance from end of boom.</p>
     </div>
 
     <div id="totals">
-        <div id="unlimited">
-            <h4>Unrestricted Limit</h4>
+        <div id="unlimited" class="weight-total">
+            <h4>Unrestricted Limit:</h4>
             <p id="unlimited-weight"></p>
-            <p>/</p>
+            <p class="slash">/</p>
             <p id="unlimited-capacity"></p>
         </div>
 
-        <div id="restricted">
-            <h4>Restricted Limit</h4>
+        <div id="restricted" class="weight-total">
+            <h4>Restricted Limit:</h4>
             <p id="restricted-weight"></p>
-            <p>/</p>
+            <p class="slash">/</p>
             <p id="restricted-capacity"></p>
         </div>
         <p id="weight-message"></p>
