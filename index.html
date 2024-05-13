@@ -17,6 +17,10 @@
     <div id="choose-lift">
         <form id="lift-form">
             <label for="lift-select">Choose what lift you're using:</label>
+            <!--For future updates:
+                Any new lift can be added as an option below with its value set to the established format listing its restricted and unrestricted weights.
+                Follow the below template:
+                <option value='{"restricted":"RESTRICTED WEIGHT HERE", "unrestricted":"UNRESTRICTED WEIGHT HERE"}'>LIFT NAME HERE</option>  -->
             <select name="lift" id="lift-select">
                 <option value="null"></option>
                 <optgroup label="JLG">
@@ -56,13 +60,17 @@
     </div>
 
     <div id="on-arm">
+        <h3>On Arm</h3>
         <form id="arm-form">
             <div class="arm-item-div">
-                <label for="arm-item-quantity">Quantity:</label>
-                <input type="number" name="arm-item-quantity" id="arm-item-quantity">
-                <select name="arm-item" id="arm-item">
+                <label for="arm-item">Type:</label>
+                <!--For future updates:
+                Any new item can be added as an option below with its value set to its measured, unadjusted weight.
+                Follow the below template:
+                <option value="WEIGHT HERE">NAME HERE</option>  -->
+                <select name="arm-item" class="arm-item" id="arm-item">
+                    <option value="0"></option>
                     <optgroup label="Bates">
-                        <option value="0"></option>
                         <option value="14">25' 60amp</option>
                         <option value="24">50' 60amp</option>
                         <option value="45">100' 60amp</option>
@@ -98,8 +106,15 @@
                         <option value="25">Cable Roller</option>
                     </optgroup>
                 </select>
+                <label for="arm-item-quantity">Quantity:</label>
+                <input type="number" name="arm-item-quantity" class="arm-item-quantity" id="arm-item-quantity" value="1">
+                <button class="delete-item">x</button>
             </div>
         </form>
+        <div id="add-arm-item-btns">
+            <button class="add-item">Add Item</button>
+            <button class = "add-custom">Add Custom Item</button>
+        </div>
     </div>
 
 
