@@ -227,6 +227,11 @@ const displayWeight = () => {
         unLimDiv.style.color = "red";
         wgtMsg.style.color = "orange";
         wgtMsg.innerHTML = "Restricted movement.  Stay within safe limits."
+    } else if (weightObj.total == 0 && liftCapacity.restricted == 0) {
+        resDiv.style.color = "black";
+        unLimDiv.style.color = "black";
+        wgtMsg.style.color = "black";
+        wgtMsg.innerHTML = ""
     } else {
         resDiv.style.color = "green";
         unLimDiv.style.color = "green";
