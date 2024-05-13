@@ -205,6 +205,12 @@ const displayWeight = () => {
 
     let weightObj = calculateWeight();
 
+    const armWeight = document.querySelector("#display-arm-weight");
+    armWeight.innerHTML = weightObj.onArm + " lbs";
+
+    const basketWeight = document.querySelector("#display-basket-weight");
+    basketWeight.innerHTML = weightObj.inBasket + " lbs";
+
     const resWeight = document.querySelector("#restricted-weight");
     resWeight.innerHTML = weightObj.total + " lbs";
 
@@ -217,21 +223,21 @@ const displayWeight = () => {
 
 
     //colors change based on if weight is over-capacity
-    if (weightObj.total > liftCapacity.restricted) {
-        resDiv.style.color = "red";
-        unLimDiv.style.color = "red";
-        wgtMsg.style.color = "red";
-        wgtMsg.innerHTML = "Overweight!"
+    if (liftCapacity.restricted == 0) {
+        resDiv.style.color = "black";
+        unLimDiv.style.color = "black";
+        wgtMsg.style.color = "black";
+        wgtMsg.innerHTML = "Choose a lift!"
     } else if (weightObj.total > liftCapacity.unrestricted && weightObj.total < liftCapacity.restricted) {
         resDiv.style.color = "green";
         unLimDiv.style.color = "red";
         wgtMsg.style.color = "orange";
         wgtMsg.innerHTML = "Restricted movement.  Stay within safe limits."
-    } else if (weightObj.total == 0 && liftCapacity.restricted == 0) {
-        resDiv.style.color = "black";
-        unLimDiv.style.color = "black";
-        wgtMsg.style.color = "black";
-        wgtMsg.innerHTML = ""
+    } else if (weightObj.total > liftCapacity.restricted) {
+        resDiv.style.color = "red";
+        unLimDiv.style.color = "red";
+        wgtMsg.style.color = "red";
+        wgtMsg.innerHTML = "Overweight!"
     } else {
         resDiv.style.color = "green";
         unLimDiv.style.color = "green";
