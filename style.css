@@ -1,3 +1,4 @@
+/*CSS Reset*/
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block;}
 body { line-height: 1;}
@@ -7,16 +8,7 @@ blockquote:before,blockquote:after,q:before,q:after { content: ''; content: none
 table { border-collapse: collapse; border-spacing: 0;}
 
 
-body {
-    display: grid;
-    justify-items: center;
-    font-family: Verdana,sans-serif;;
-
-}
-
-input {
-    text-align: right;
-}
+/*global input and select settings*/
 
 input[type="checkbox"] {
     -webkit-appearance: none;
@@ -58,21 +50,39 @@ input[type="number"] {
 }
 
 input[type="text"] {
-    width: 10.1vw;
+    width: 8.4vw;
 }
 
-#choose-lift {
-    font-size: 1.8rem;
-    margin-bottom: 3vh;
+select, input {
+    background-color: #D5D5D5;
+    border: 1px solid #494949;
 }
 
-#lift-select {
-    height: 2.3rem;
-    font-size: 1.8rem;
+
+/*Body and divs mostly from top to bottom*/
+body {
+    display: grid;
+    justify-items: center;
+    font-family: Verdana,sans-serif;;
+    background: #494949;
+    background: linear-gradient(to bottom, #494949 0%, #A2A2A2 100%);
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#container {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    display: grid;
+    justify-items: center; 
+    box-shadow: 0px 0px 21px 5px rgba(0,0,0,0.61);
+    background-color: #fff;
+    position: relative;
 }
 
 #header {
-    margin-top: 4vh;
+    margin-top: 3vh;
     margin-bottom: 3vh;
     display: flex;
     flex-direction: column;
@@ -97,6 +107,18 @@ h1 {
     justify-items: center;
 }
 
+#choose-lift {
+    font-size: 1.8rem;
+    margin-bottom: 3vh;
+}
+
+#lift-select {
+    height: 2.3rem;
+    font-size: 1.8rem;
+}
+
+
+/*Segments containing and adding items*/
 .section-container {
     width: 70vw;
     margin-bottom: 5vh;
@@ -123,7 +145,11 @@ h1 {
 
 .arm-item-div, .basket-item-div {
     display: flex;
-    padding: .7vh 0;
+    width: 40vw;
+    padding: .7vh .3vw .7vh 1vw;
+    align-items: center;
+    background-color: #EAEAEA;
+    border-radius: 5px;
 }
 
 .arm-item-div select, .basket-item-div select {
@@ -131,7 +157,7 @@ h1 {
 }
 
 .arm-item-div select, .basket-item-div select,
-.arm-item-div input[type="number"], .basket-item-div input[type="number"]
+.arm-item-div input[type="number"], .basket-item-div input[type="number"],
 .arm-item-div input[type="text"], .basket-item-div input[type="text"]{
     margin-right: 2vw;
 }
@@ -174,6 +200,13 @@ h3 {
     grid-row: 3 / 4;
 }
 
+#add-arm-item-btns, #add-basket-item-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
 #add-arm-item-btns {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
@@ -190,12 +223,58 @@ h3 {
     font-size: .8rem;
 }
 
+
+/* delete and add item buttons */
+.delete-item {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #FF0000;
+    color: #fff;
+    border: 1px solid #9B0000;
+    box-shadow: 0px 0px 5px 0px #000000;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-item:hover {
+    background-color: #CB0000;
+}
+
+.delete-item:active {
+    background-color: #9B0000;
+}
+
+.add-item, .add-custom {
+    width: 10vw;
+    height: 1.5rem;
+    background-color: #1267D5;
+    color: #fff;
+    border: 1px solid #083063;
+    box-shadow: 0px 0px 5px 0px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-item:hover, .add-custom:hover {
+    background-color: #0E50A5;
+}
+
+.add-item:active, .add-custom:active {
+    background-color: #083063;
+}
+
+/* Display Weight section at bottom */
 #totals {
     width: 50vw;
     display: grid;
     grid-template-rows: 3fr 1fr;
     grid-template-columns: 2fr 1fr 2fr;
     gap: 2vh;
+    position: relative;
+    bottom: 3vh;
 }
 
 .weight-total {
@@ -206,8 +285,8 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
-    gap: 1vw;
-
+    column-gap: 1vw;
+    position: relative;
 }
 
 .weight-total h4 {
@@ -217,6 +296,8 @@ h3 {
     font-size: 1.5rem;
     align-self: self-end;
     text-align: center;
+    position: relative;
+    top: 2vh;
 }
 
 .slash {
