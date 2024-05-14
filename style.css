@@ -231,7 +231,6 @@ h3 {
     background-color: #FF0000;
     color: #fff;
     border: 1px solid #9B0000;
-    box-shadow: 0px 0px 5px 0px #000000;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -252,7 +251,6 @@ h3 {
     background-color: #1267D5;
     color: #fff;
     border: 1px solid #083063;
-    box-shadow: 0px 0px 5px 0px #000000;
     display: flex;
     justify-content: center;
     align-items: center;
