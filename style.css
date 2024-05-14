@@ -126,6 +126,7 @@ h1 {
     justify-items: center;
     align-items: center;
     gap: 1.5vh;
+    position: relative;
 }
 
 .item-form  {
@@ -167,6 +168,8 @@ h3 {
     grid-row: 1 / 2;
     font-weight: bold;
     font-size: 1.3rem;
+    position: relative;
+    top: 1.7vh;
 }
 
 .item-weight {
