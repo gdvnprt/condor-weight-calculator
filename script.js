@@ -171,7 +171,7 @@ const createCustom = (element) => {
 
     const deleteCustom = document.createElement('button');
     deleteCustom.classList.add("delete-item");
-    deleteCustom.textContent = "x";
+    deleteCustom.textContent = "×";
     customDiv.appendChild(deleteCustom);
     
 
