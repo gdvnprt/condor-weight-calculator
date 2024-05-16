@@ -300,7 +300,7 @@ h3 {
 
 .weight-total {
     width: 70%;
-    height: auto;
+    height: 20vh;
     display: grid;
     grid-template-rows: 1fr 2fr 2fr;
     grid-template-columns: repeat(2, 1fr);
@@ -319,6 +319,7 @@ h3 {
     text-align: center;
     position: relative;
     top: 2vh;
+    width: 11rem
 }
 
 .slash {
