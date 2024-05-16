@@ -159,7 +159,7 @@ h1 {
     width: 100%;
     padding: .7vh 2% .7vh 2%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #EAEAEA;
     border-radius: 3px;
     position: relative;
