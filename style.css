@@ -292,7 +292,6 @@ h3 {
     display: grid;
     grid-template-rows: 3fr 1fr;
     grid-template-columns: 2fr 1fr 2fr;
-    gap: 2vh;
     position: relative;
     bottom: 3vh;
     justify-items: center;
@@ -361,6 +360,7 @@ h3 {
     grid-row: 2 / 3;
     grid-column: 1 / 4;
     justify-self: center;
+    align-self: start;
     font-size: 1.3rem;
     font-weight: bold;
 }
