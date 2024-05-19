@@ -305,7 +305,7 @@ h3 {
     }
 
 .weight-total {
-    width: 100%;
+    width: clamp(100px, 80%, 250px);
     height: 66%;
     display: grid;
     grid-template-rows: 1fr 2fr 2fr;
@@ -354,15 +354,20 @@ h3 {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     align-self: self-end;
-    text-align: center;
+    text-align: right;
+    align-self: end;
     position: relative;
     top: 30%;
+    right: 10%;
 }
 
 #unlimited-capacity, #restricted-capacity {
     grid-row: 3 / 4;
     grid-column: 2 / 3;
-    align-self: self-start;
+    align-self: start;
+    text-align: left;
+    position: relative;
+    left: 5%;
 }
 
 #weight-message {
