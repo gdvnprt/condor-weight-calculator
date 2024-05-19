@@ -231,19 +231,19 @@ const displayWeight = () => {
         wgtMsg.style.color = "black";
         wgtMsg.innerHTML = "Choose a lift!"
     } else if (weightObj.total > liftCapacity.unrestricted && weightObj.total < liftCapacity.restricted) {
-        resDiv.style.color = "green";
-        unLimDiv.style.color = "red";
+        resDiv.style.color = "#339900";
+        unLimDiv.style.color = "#cc3300";
         wgtMsg.style.color = "#FF6600";
         wgtMsg.innerHTML = "Restricted movement.  Stay within safe limits."
     } else if (weightObj.total > liftCapacity.restricted) {
-        resDiv.style.color = "red";
-        unLimDiv.style.color = "red";
-        wgtMsg.style.color = "red";
+        resDiv.style.color = "#cc3300";
+        unLimDiv.style.color = "#cc3300";
+        wgtMsg.style.color = "#cc3300";
         wgtMsg.innerHTML = "Overweight!"
     } else {
-        resDiv.style.color = "green";
-        unLimDiv.style.color = "green";
-        wgtMsg.style.color = "green";
+        resDiv.style.color = "#339900";
+        unLimDiv.style.color = "#339900";
+        wgtMsg.style.color = "#339900";
         wgtMsg.innerHTML = "Good to go!"
     };
 };
