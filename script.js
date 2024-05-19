@@ -197,6 +197,8 @@ customItemBtn.forEach(el => el.addEventListener('click', () => {
 const displayWeight = () => {
     let liftCapacity = JSON.parse(selectLift.value);
 
+    const totalsDiv = document.querySelector('#totals');
+
     const resCap = document.querySelector("#restricted-capacity");
     resCap.innerHTML = liftCapacity.restricted + " lbs"
 
@@ -206,16 +208,16 @@ const displayWeight = () => {
     let weightObj = calculateWeight();
 
     const armWeight = document.querySelector("#display-arm-weight");
-    armWeight.innerHTML = weightObj.onArm + " lbs";
+    armWeight.innerHTML = Math.round(weightObj.onArm) + " lbs";
 
     const basketWeight = document.querySelector("#display-basket-weight");
-    basketWeight.innerHTML = weightObj.inBasket + " lbs";
+    basketWeight.innerHTML = Math.round (weightObj.inBasket) + " lbs";
 
     const resWeight = document.querySelector("#restricted-weight");
-    resWeight.innerHTML = weightObj.total + " lbs";
+    resWeight.innerHTML = Math.round(weightObj.total) + " lbs";
 
     const unLimWeight = document.querySelector("#unlimited-weight");
-    unLimWeight.innerHTML = weightObj.total + " lbs";
+    unLimWeight.innerHTML = Math.round(weightObj.total) + " lbs";
 
     const resDiv = document.querySelector('#restricted')
     const unLimDiv = document.querySelector('#unlimited')
