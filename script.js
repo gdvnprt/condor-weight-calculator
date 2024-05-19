@@ -233,7 +233,7 @@ const displayWeight = () => {
     } else if (weightObj.total > liftCapacity.unrestricted && weightObj.total < liftCapacity.restricted) {
         resDiv.style.color = "green";
         unLimDiv.style.color = "red";
-        wgtMsg.style.color = "orange";
+        wgtMsg.style.color = "#FF6600";
         wgtMsg.innerHTML = "Restricted movement.  Stay within safe limits."
     } else if (weightObj.total > liftCapacity.restricted) {
         resDiv.style.color = "red";
