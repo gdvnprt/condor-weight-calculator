@@ -55,7 +55,8 @@ input[type="number"] {
 }
 
 input[type="text"] {
-    width: 25.5%;
+    width: 25.2%;
+    margin-right: 2%;
 }
 
 select, input {
@@ -69,9 +70,9 @@ body {
     display: grid;
     justify-items: center;
     font-family: Verdana,sans-serif;;
-    background: #494949;
+    background: #A2A2A2;
     background: linear-gradient(to bottom, #494949 0%, #A2A2A2 100%);
-    height: 100vh;
+    height: auto;
     width: 100vw;
 
 }
@@ -142,6 +143,8 @@ h1 {
     width: 70%;
     justify-items: center;
     align-items: center;
+    background-color: #EAEAEA;
+    border-radius: 3px;
 }
 
 #on-arm {
@@ -160,8 +163,6 @@ h1 {
     padding: .7vh 2% .7vh 2%;
     align-items: center;
     justify-content: space-around;
-    background-color: #EAEAEA;
-    border-radius: 3px;
     position: relative;
 }
 
@@ -170,8 +171,7 @@ h1 {
 }
 
 .arm-item-div select, .basket-item-div select,
-.arm-item-div input[type="number"], .basket-item-div input[type="number"],
-.arm-item-div input[type="text"], .basket-item-div input[type="text"]{
+.arm-item-div input[type="number"], .basket-item-div input[type="number"]{
     margin-right: 5%;
 }
 
