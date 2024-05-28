@@ -66,17 +66,27 @@ selectLift.addEventListener('change', () => {
     displayWeight();
 });
 
+//round weight up in increments of 25 to satisfy manufacturer chart guidelines
+const round25 = (n) => {
+    return Math.ceil(n / 25) * 25
+}
 
 //core weight calculation
 const calculateWeight = (modifier) => {
     let onArm = armArray.reduce((a, b) => a + b, 0);
     let basketBase = basketArray.reduce((a, b) => a + b, 0);
+    //round weight up in increments of 25 to satisfy manufacturer chart guidelines
     if (operator.checked == true) {
-        let inBasket = basketBase + 200 * modifier;
+        let inBasket = round25(basketBase + 200 * modifier);
+        let total =  onArm + inBasket;
+        return { onArm, inBasket, total }
+    } else if (basketBase < 50 && basketBase > 0){
+        //weights under 50lbs round up to 50 per manufacturer chart guidelines
+        let inBasket =  50 * modifier;
         let total =  onArm + inBasket;
         return { onArm, inBasket, total }
     } else {
-        let inBasket =  basketBase * modifier;
+        let inBasket =  round25 (basketBase * modifier);
         let total =  onArm + inBasket;
         return { onArm, inBasket, total }
     };
