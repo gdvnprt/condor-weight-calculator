@@ -287,6 +287,18 @@ h3 {
     background-color: #083063;
 }
 
+/*basket notes organized and look nice*/
+#basket-notes {
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: .7rem;
+    text-align: center;
+}
+
 /* Display Weight section at bottom */
 #totals {
     width: 70%;
