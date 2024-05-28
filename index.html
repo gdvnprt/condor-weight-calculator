@@ -26,40 +26,54 @@
                 <!--For future updates:
                     Any new lift can be added as an option below with its value set to the established format listing its restricted and unrestricted weights.
                     Follow the below template:
-                    <option value='{"unrestricted":"UNRESTRICTED WEIGHT HERE", "restricted":"RESTRICTED WEIGHT HERE"}'>LIFT NAME HERE</option>  -->
+                    <option value='{"unrestricted":"UNRESTRICTED WEIGHT HERE", "restricted":"RESTRICTED WEIGHT HERE", "modifier":"WEIGHT MODIFICATION FACTOR CALCULATED FROM MANUFACTURER MANUAL HERE"}'>LIFT NAME HERE</option>  -->
                 <select name="lift" id="lift-select">
                     <option value='{"unrestricted":"0", "restricted":"0"}'><em>Select a Lift</em></option>
                     <optgroup label="JLG">
-                        <option value='{"unrestricted":"600", "restricted":"1000"}'>400S</option>
-                        <option value='{"unrestricted":"600", "restricted":"1000"}'>600S</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>800S</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>450A</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>600A</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>800A</option>
-                        <option value='{"unrestricted":"600", "restricted":"600"}'>460SJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"750"}'>660SJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"750"}'>860SJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>450AJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>600AJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>800AJ</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>1200SJP</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>1350SJP</option>
+                        <!--Missing all A[nothing after] lifts, 520AJ HC3, H800AJ-->
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.26"}'>340AJ, H340AJ</option>
+                        <option value='{"unrestricted":"600", "restricted":"1000", "modifier":"1.7"}'>400S</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.7"}'>400S HC3</option>
+                        <option value='{"unrestricted":"600", "restricted":"1000", "modifier":"1.7"}'>400S</option>
+                        <option value='{"unrestricted":"550", "restricted":"550", "modifier":"1.26"}'>450AJ</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.26"}'>450AJ HC3</option>
+                        <option value='{"unrestricted":"600", "restricted":"600", "modifier":"1.22"}'>460SJ</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.22"}'>460SJ HC3</option>
+                        <option value='{"unrestricted":"600", "restricted":"1000", "modifier":"1.7"}'>600S</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.7"}'>600S HC3</option>
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.22"}'>600AJ</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.22"}'>600AJ HC3</option>
+                        <option value='{"unrestricted":"550", "restricted":"750", "modifier":"1.22"}'>660SJ, 670SJ</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.22"}'>660SJ HC3</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.7"}'>800S</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.7"}'>800S HC3</option>
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.22"}'>800AJ</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.22"}'>800AJ HC3</option>
+                        <option value='{"unrestricted":"500", "restricted":"750", "modifier":"1.22"}'>860SJ, 670SJ</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>860SJ HC3</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>1200SJP</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>1250AJP</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>1350SJP</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>1500SJP</option>
+                        <option value='{"unrestricted":"600", "restricted":"1000", "modifier":"1.22"}'>1500AJP</option>
+                        <option value='{"unrestricted":"500", "restricted":"1000", "modifier":"1.22"}'>1850SJP</option>
+                        
                     </optgroup>
                     <optgroup label="Genie">
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-45</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-65</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-85</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-105</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-120</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>S-125</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>S-40</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>S-60</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>S-60HC</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>S-80</option>
-                        <option value='{"unrestricted":"500", "restricted":"1000"}'>S-100</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>Z-34/22 IC</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>Z-45/25J</option>
-                        <option value='{"unrestricted":"500", "restricted":"500"}'>Z-60/34</option>
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.34"}'>Z-34/22</option>
+                        <option value='{"unrestricted":"660", "restricted":"660", "modifier":"1.34"}'>Z-45 XC</option>
+                        <option value='{"unrestricted":"660", "restricted":"660", "modifier":"1.34"}'>Z-45 DC/FE</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-45 XC</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-45 TRAX</option>
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.34"}'>Z-60 DC/FE</option>
+                        <option value='{"unrestricted":"660", "restricted":"660", "modifier":"1.34"}'>S-60 J</option>
+                        <option value='{"unrestricted":"660", "restricted":"660", "modifier":"1.34"}'>S-60 DC/FE</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-65 XC</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-65 TRAX</option>
+                        <option value='{"unrestricted":"500", "restricted":"500", "modifier":"1.34"}'>Z-80/60</option>
+                        <option value='{"unrestricted":"660", "restricted":"660", "modifier":"1.34"}'>S-80 J</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-85 XC</option>
+                        <option value='{"unrestricted":"660", "restricted":"1000", "modifier":"1.34"}'>S-125 XC</option>
                     </optgroup>
                 </select>
             </form>
