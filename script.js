@@ -7,9 +7,9 @@ const addItem = (array, position, value) => {
 };
 
 //modifier accounts for weight adjustment factors.
-const addItemListen = (element, array, modifier) => {
+const addItemListen = (element, array) => {
     element.addEventListener('change', () => {
-        let weightValue = element.parentNode.children[1].value * element.parentNode.children[3].value * modifier;
+        let weightValue = element.parentNode.children[1].value * element.parentNode.children[3].value;
         let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.classList[0]));
         let position = posArr.indexOf(element.parentNode);
         //for some reason only the first in the list has a bug that makes its position -1 when it should be 0
@@ -23,9 +23,9 @@ const addItemListen = (element, array, modifier) => {
 
 
 //had to tweak slightly for custom items
-const addCustomListen = (element, array, modifier) => {
+const addCustomListen = (element, array) => {
     element.addEventListener('change', () => {
-        let weightValue = element.parentNode.children[3].value * element.parentNode.children[5].value * modifier;
+        let weightValue = element.parentNode.children[3].value * element.parentNode.children[5].value;
         let posArr = Array.prototype.slice.call(document.querySelectorAll("." + element.parentNode.classList[0]));
         let position = posArr.indexOf(element.parentNode);
         //for some reason only the first in the list has a bug that makes its position -1 when it should be 0
@@ -59,23 +59,28 @@ const addDeleteListen = (element, array) => {
     });
 };
 
-//core weight calculation
-const calculateWeight = () => {
-    let onArm = armArray.reduce((a, b) => a + b, 0);
-    let inBasket = basketArray.reduce((a, b) => a + b, 0);
-    if (operator.checked == true) {
-        inBasket += 275;
-    };
-    let total =  onArm + inBasket;
-    return { onArm, inBasket, total };
-};
-
 //selecting a lift type creates a json object with weight info
 const selectLift = document.querySelector("#lift-select");
 
 selectLift.addEventListener('change', () => {
     displayWeight();
 });
+
+
+//core weight calculation
+const calculateWeight = (modifier) => {
+    let onArm = armArray.reduce((a, b) => a + b, 0);
+    let basketBase = basketArray.reduce((a, b) => a + b, 0);
+    if (operator.checked == true) {
+        let inBasket = basketBase + 200 * modifier;
+        let total =  onArm + inBasket;
+        return { onArm, inBasket, total }
+    } else {
+        let inBasket =  basketBase * modifier;
+        let total =  onArm + inBasket;
+        return { onArm, inBasket, total }
+    };
+};
 
 //add listeners to original divs
 const startArmDiv = document.querySelector('.arm-item-div');
@@ -205,7 +210,7 @@ const displayWeight = () => {
     const unLimCap = document.querySelector("#unlimited-capacity");
     unLimCap.innerHTML = liftCapacity.unrestricted + " lbs"
 
-    let weightObj = calculateWeight();
+    let weightObj = calculateWeight(parseFloat(liftCapacity.modifier));
 
     const armWeight = document.querySelector("#display-arm-weight");
     armWeight.innerHTML = Math.round(weightObj.onArm) + " lbs";
